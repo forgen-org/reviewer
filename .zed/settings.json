@@ -1,0 +1,19 @@
+{
+  "languages": {
+    "Rust": {
+      "format_on_save": {
+        "external": {
+          "command": "leptosfmt",
+          "arguments": ["--stdin", "--rustfmt", "--experimental-tailwind", "."]
+        }
+      }
+    }
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "procMacro": {
+        "ignored": ["component", "server"]
+      }
+    }
+  }
+}
