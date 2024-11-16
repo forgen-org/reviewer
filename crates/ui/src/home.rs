@@ -14,9 +14,11 @@ pub fn Home() -> impl IntoView {
     let change_requests = create_resource(
         || (),
         |_| async move {
+            let access_token = dotenv!("GITLAB_ACCESS_TOKEN");
+            let project = dotenv!("GITLAB_PROJECT");
             let client = GitlabClient::new(
-                dotenv!("GITLAB_ACCESS_TOKEN").to_string(),
-                dotenv!("GITLAB_PROJECT").to_string(),
+                access_token.to_string(),
+                project.to_string(),
             );
             client.fetch().await
         },
